@@ -11,38 +11,38 @@ const News = () => {
             <div className='grid sm:grid-cols-2 lg:grid-cols-2 gap-4 pt-4'>
                 <div className='flex'>
                     <div>
+                        <img className='float-left px-4' src={news1} width={150} height={150}/>
+                        <p className='text-lg pb-2'>Hari Kartini: “Patahkan Stigma, Diskriminasi, dan Ketidakadilan terhadap Perempuan Adat”</p>
+                    </div>
+                </div>
+                <div className='flex'>
+                    <div>
+                        <img className='float-left px-4' src={news2} width={150} height={150}/>
+                        <p className='text-lg pb-2'>Audit Lembaga Persekutuan Perempuan Adat Nusantara (PEREMPUAN AMAN) 2020 & 2021</p>
+                    </div>
+                </div>
+                <div className='flex'>
+                    <div>
+                        <img className='float-left px-4' src={news1} width={150} height={150}/>
+                        <p className='text-lg pb-2'>PIDATO KETUA UMUM (Hari Kebangkitan Perempuan Adat Nusantara 2022 & 10 Tahun PEREMPUAN AMAN)</p>
+                    </div>
+                </div>
+                <div className='flex'>
+                    <div>
+                        <img className='float-left px-4' src={news2} width={150} height={150}/>
+                        <p className='text-lg pb-2'>Hutan memiliki arti sangat penting bagi seluruh kehidupan kita semua</p>
+                    </div>
+                </div>
+                <div className='flex'>
+                    <div>
                         <img className='float-left px-2' src={news1} width={150} height={150}/>
-                        <p className='text-lg pb-2'>Indigenous Women: Every day is Earth Day for Us</p>
+                        <p className='text-lg pb-2'>Tujuan-Tujuan Pembangunan Berkelanjutan dan Masyarakat Adat: Sebuah Panduan Praktis Bagi Masyarakat Adat (Versi II)</p>
                     </div>
                 </div>
                 <div className='flex'>
                     <div>
                         <img className='float-left px-2' src={news2} width={150} height={150}/>
-                        <p className='text-lg pt-2 pb-2'>The Eighth Awakening Day of The Indigenous Women of the Archipelago: While in Pandemic, Indigenous Women Remain Unstoppable</p>
-                    </div>
-                </div>
-                <div className='flex'>
-                    <div>
-                        <img className='float-left px-2' src={news1} width={150} height={150}/>
-                        <p className='text-lg pb-2'>THE FOURTH NATIONAL WORK MEETING: PEREMPUAN AMAN TOWARDS THE THIRD NATIONAL GATHERING 2020</p>
-                    </div>
-                </div>
-                <div className='flex'>
-                    <div>
-                        <img className='float-left px-2' src={news2} width={150} height={150}/>
-                        <p className='text-lg pt-2 pb-2'>Indigenous Women from All Over the World Joined Terra Livre Camp 2019</p>
-                    </div>
-                </div>
-                <div className='flex'>
-                    <div>
-                        <img className='float-left px-2' src={news1} width={150} height={150}/>
-                        <p className='text-lg pb-2'>Indigenous Women: Every day is Earth Day for Us</p>
-                    </div>
-                </div>
-                <div className='flex'>
-                    <div>
-                        <img className='float-left px-2' src={news2} width={150} height={150}/>
-                        <p className='text-lg pt-2 pb-2'>The Eighth Awakening Day of The Indigenous Women of the Archipelago: While in Pandemic, Indigenous Women Remain Unstoppable</p>
+                        <p className='text-lg pb-2'>Apa Itu Credit Union Pancoran Kehidupan (CU Randu) ?</p>
                     </div>
                 </div>
             </div>
