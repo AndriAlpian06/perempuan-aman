@@ -15,10 +15,8 @@ const Navbar = () => {
 
   return (
     <div className='flex w-full justify-between items-center h-20 px-4 absolute z-10 text-white'>
-        {/* <img src="./assets/perempuan-aman.png" /> */}
         <div>
             <img onClick={handleNav} className={logo ? 'hidden' : 'block h-[100px] p-4'} src={logoAman} />
-            {/* <h1 onClick={handleNav} className={logo ? 'hidden' : 'block'}>Aman.</h1> */}
         </div>
         <ul className='hidden md:flex'>
             <li>Tentang Kami</li>

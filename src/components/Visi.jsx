@@ -12,7 +12,7 @@ const Visi = () => {
 dalam rangka mewujudkan Masyarakat Adat yang berdaulat, mandiri dan bermartabat
             </p>
 
-            <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4'>
+            <div className='grid mx-auto sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4'>
                 <div className='flex'>
                     <div>
                         <CheckIcon className='w-7 mr-4 text-green-600' />

@@ -46,6 +46,11 @@ const News = () => {
                     </div>
                 </div>
             </div>
+            {/* <div className='mx-auto'>
+                <div>
+                    <button className='mx-auto'>Read More ..</button>
+                </div>
+            </div> */}
         </div>
 
     </div>
