@@ -1,10 +1,19 @@
 import React from 'react'
 import news1 from '../assets/news1.jpeg'
 import news2 from '../assets/news2.jpeg'
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const News = () => {
+
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+      }, []);
+    
   return (
-    <div className='w-full my-32'>
+    <div className='w-full my-32' data-aos="fade-right" data-aos-offset="500" data-aos-easing="ease-in-sine">
         <div className='max-w-[1240px] mx-auto px-2'>
             <h2 className='text-3xl text-center my-20'>News</h2>
 
@@ -46,11 +55,10 @@ const News = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className='mx-auto'>
-                <div>
-                    <button className='mx-auto'>Read More ..</button>
-                </div>
-            </div> */}
+            
+            <div className='mt-2'>
+                <button className='justify-items-center transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300'>Read More ..</button>    
+            </div>
         </div>
 
     </div>

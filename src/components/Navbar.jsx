@@ -1,64 +1,61 @@
-import React, {useState} from 'react'
-import {BsSearch} from 'react-icons/bs'
-import {AiOutlineClose} from 'react-icons/ai' 
-import {HiOutlineMenuAlt4} from 'react-icons/hi'
-import {FaFacebook, FaTwitter, FaPinterest, FaInstagram, FaYoutube} from 'react-icons/fa'
-import logoAman from '../assets/perempuan-aman.png'
+import React, { useState } from 'react'
+import { FaBars, FaTimes } from 'react-icons/fa'
+import logo from '../assets/perempuan-aman.png'
+
+import './Navbar.css'
+  
 
 const Navbar = () => {
-    const [nav, setNav] = useState(false)
-    const [logo, setLogo] = useState(false)
-    const handleNav = () => {
-        setNav(!nav)
-        setLogo(!logo)
+
+    // setting mobile nav
+    const [click, setClick] = useState(false)
+    const handleClick = () => setClick(!click)
+
+    // change nav color when scrolling
+    const [color, setColor] = useState(false)
+    const changeColor = () => {
+        if (window.scrollY >= 90){
+            setColor(true)
+        }else{
+            setColor(false)
+        }
     }
 
-  return (
-    <div className='flex w-full justify-between items-center h-20 px-4 absolute z-10 text-white'>
-        <div>
-            <img onClick={handleNav} className={logo ? 'hidden' : 'block h-[100px] p-4'} src={logoAman} />
-        </div>
-        <ul className='hidden md:flex'>
-            <li>Tentang Kami</li>
-            <li>Kerja Sama</li>
-            <li>Publikasi</li>
-            <li>Berita</li>
-            <li>Organisasi</li>
-        </ul>
-        <div className='hidden md:flex'>
-            {/* <BsSearch className='mr-2' size={20}/> */}
-            <p>English</p>
-        </div>
+    window.addEventListener('scroll', changeColor)
 
-        <div onClick={handleNav} className='md:hidden z-10'>
-            {nav ? <AiOutlineClose className='text-black' size={20} /> : <HiOutlineMenuAlt4 size={20}/>}
-            
-        </div>
+    // close menu on click
+    const closeMenu = () => setClick(false)
 
-        <div onClick={handleNav} className={nav ? 'absolute text-black left-0 top-0 w-full bg-gray-100/90 px-4 py-7 flex-col' : 'absolute left-[-100%]'}>
-            <ul>
-                {/* <h1>Aman.</h1>            */}
-                <img className='h-[100px] p-4' src={logoAman} />
-                <li className='border-b'>Tentang Kami</li>
-                <li className='border-b'>Kerja Sama</li>
-                <li className='border-b'>Publikasi</li>
-                <li className='border-b'>Berita</li>
-                <li className='border-b'>Organisasi</li>
-                <div className='flex flex-col'>
-                    <button className='my-6'>Search</button>
+    return (
+        <div className={color ? 'header header-bg' : 'header'}>
+            <nav className='navbar'>
+                <a href='/' className='logo'>
+                    <img src={logo} alt='logo' />
+                </a>
+                <div className='hamburger' onClick={handleClick}>
+                    {click ? (<FaTimes size={30} style={{ color: '#ffffff'}} />)
+                        : (<FaBars size={30} style={{ color: '#ffffff'}}/>)}
                 </div>
-                <div className='flex justify-between my-6'>
-                    <FaFacebook className='icon'/>
-                    <FaTwitter className='icon'/>
-                    <FaInstagram className='icon'/>
-                    <FaPinterest className='icon'/>
-                    <FaYoutube className='icon'/>
-                </div>
-            </ul>
+                <ul className={click ? "nav-menu active" : "nav-menu"}>
+                    <li className='nav-item'>
+                        <a href='/' onClick={closeMenu}>Beranda</a>
+                    </li>
+                    <li className='nav-item'>
+                        <a href='/' onClick={closeMenu}>Tentang Kami</a>
+                    </li>
+                    <li className='nav-item'>
+                        <a href='/' onClick={closeMenu}>Kerja Kami</a>
+                    </li>
+                    <li className='nav-item'>
+                    <a href='/' onClick={closeMenu}>Publikasi</a>
+                    </li>
+                    <li className='nav-item'>
+                        <a href='/' onClick={closeMenu}>Toko Aman</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-    </div>
-    
-  )
+    )
 }
 
 export default Navbar
