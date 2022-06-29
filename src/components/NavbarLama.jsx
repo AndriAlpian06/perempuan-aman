@@ -1,200 +1,83 @@
-import React, {useState, Fragment} from 'react'
-import {BsSearch} from 'react-icons/bs'
-import {AiOutlineClose} from 'react-icons/ai' 
-import {HiOutlineMenuAlt4} from 'react-icons/hi'
-import {FaFacebook, FaTwitter, FaPinterest, FaInstagram, FaYoutube} from 'react-icons/fa'
-import logoAman from '../assets/perempuan-aman.png'
-import { Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/solid'
+import React, { useState } from 'react'
+import { FaBars, FaTimes } from 'react-icons/fa'
+import logo from '../assets/perempuan-aman.png'
+import {Route, Link, Routes} from 'react-router-dom';
+import Home from '../pages';
+import About from '../pages/About';
+import Our_Program from '../pages/Our_Program';
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-  }
+import './Navbar2.css'
   
 
-const NavbarLama = () => {
-    const [nav, setNav] = useState(false)
-    const [logo, setLogo] = useState(false)
-    const handleNav = () => {
-        setNav(!nav)
-        setLogo(!logo)
+const Navbar = () => {
+
+    // setting mobile nav
+    const [click, setClick] = useState(false)
+    const handleClick = () => setClick(!click)
+
+    // change nav color when scrolling
+    const [color, setColor] = useState(false)
+    const changeColor = () => {
+        if (window.scrollY >= 90){
+            setColor(true)
+        }else{
+            setColor(false)
+        }
     }
 
-  return (
-    <div className='flex w-full justify-between items-center h-20 px-8 fixed z-10 text-white'>
-        <div>
-            <img onClick={handleNav} className={logo ? 'hidden' : 'block h-[100px] p-4'} src={logoAman} />
-        </div>
-        <ul className='hidden md:flex'>
-            <li className='px-4'>
-                <Menu>
-                    <Menu.Button>
-                        Beranda
-                    </Menu.Button>
-                </Menu>
-            </li>
-            <li className='px-4'>Tentang Kami</li>
-            <li className='px-4'>Kerja Sama</li>
-            <li className='px-4'>Berita</li>
-            <li className='px-4'>Organisasi</li>
-            <li className='px-4'>
-                <Menu as="div" className="relative inline-block text-left">
-                    <div>
-                                <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-                                Options
-                                <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
-                                </Menu.Button>
-                    </div>
+    window.addEventListener('scroll', changeColor)
 
-                    <Transition
-                                as={Fragment}
-                                enter="transition ease-out duration-100"
-                                enterFrom="transform opacity-0 scale-95"
-                                enterTo="transform opacity-100 scale-100"
-                                leave="transition ease-in duration-75"
-                                leaveFrom="transform opacity-100 scale-100"
-                                leaveTo="transform opacity-0 scale-95"
-                            >
-                                <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none">
-                                <div className="py-1">
-                                    <Menu.Item>
-                                    {({ active }) => (
-                                        <a
-                                        href="#"
-                                        className={classNames(
-                                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                            'block px-4 py-2 text-sm'
-                                        )}
-                                        >
-                                        Edit
-                                        </a>
-                                    )}
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                    {({ active }) => (
-                                        <a
-                                        href="#"
-                                        className={classNames(
-                                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                            'block px-4 py-2 text-sm'
-                                        )}
-                                        >
-                                        Duplicate
-                                        </a>
-                                    )}
-                                    </Menu.Item>
-                                </div>
-                                <div className="py-1">
-                                    <Menu.Item>
-                                    {({ active }) => (
-                                        <a
-                                        href="#"
-                                        className={classNames(
-                                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                            'block px-4 py-2 text-sm'
-                                        )}
-                                        >
-                                        Archive
-                                        </a>
-                                    )}
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                    {({ active }) => (
-                                        <a
-                                        href="#"
-                                        className={classNames(
-                                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                            'block px-4 py-2 text-sm'
-                                        )}
-                                        >
-                                        Move
-                                        </a>
-                                    )}
-                                    </Menu.Item>
-                                </div>
-                                <div className="py-1">
-                                    <Menu.Item>
-                                    {({ active }) => (
-                                        <a
-                                        href="#"
-                                        className={classNames(
-                                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                            'block px-4 py-2 text-sm'
-                                        )}
-                                        >
-                                        Share
-                                        </a>
-                                    )}
-                                    </Menu.Item>
-                                    <Menu.Item>
-                                    {({ active }) => (
-                                        <a
-                                        href="#"
-                                        className={classNames(
-                                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                            'block px-4 py-2 text-sm'
-                                        )}
-                                        >
-                                        Add to favorites
-                                        </a>
-                                    )}
-                                    </Menu.Item>
-                                </div>
-                                <div className="py-1">
-                                    <Menu.Item>
-                                    {({ active }) => (
-                                        <a
-                                        href="#"
-                                        className={classNames(
-                                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                            'block px-4 py-2 text-sm'
-                                        )}
-                                        >
-                                        Delete
-                                        </a>
-                                    )}
-                                    </Menu.Item>
-                                </div>
-                                </Menu.Items>
-                    </Transition>
-                 </Menu>
-            </li>
-            
-        </ul>
-        <div className='hidden md:flex'>
-            {/* <BsSearch className='mr-2' size={20}/> */}
-            <p>English</p>
-        </div>
+    // close menu on click
+    const closeMenu = () => setClick(false)
 
-        <div onClick={handleNav} className='md:hidden z-10'>
-            {nav ? <AiOutlineClose className='text-black' size={20} /> : <HiOutlineMenuAlt4 size={20}/>}
-            
-        </div>
-
-        <div onClick={handleNav} className={nav ? 'absolute text-black left-0 top-0 w-full bg-gray-100/90 px-4 py-7 flex-col' : 'absolute left-[-100%]'}>
-            <ul>
-                {/* <h1>Aman.</h1>            */}
-                <img className='h-[100px] p-4' src={logoAman} />
-                <li className='border-b'>Tentang Kami</li>
-                <li className='border-b'>Kerja Sama</li>
-                <li className='border-b'>Publikasi</li>
-                <li className='border-b'>Berita</li>
-                <li className='border-b'>Organisasi</li>
-                <div className='flex flex-col'>
-                    <button className='my-6'>Search</button>
+    return (
+        <div className={color ? 'header header-bg' : 'header'}>
+            <nav className='navbar'>
+                <a href='/' className='logo'>
+                    <img src={logo} alt='logo' />
+                </a>
+                <div className='hamburger' onClick={handleClick}>
+                    {click ? (<FaTimes size={30} style={{ color: '#ffffff'}} />)
+                        : (<FaBars size={30} style={{ color: '#ffffff'}}/>)}
                 </div>
-                <div className='flex justify-between my-6'>
-                    <FaFacebook className='icon'/>
-                    <FaTwitter className='icon'/>
-                    <FaInstagram className='icon'/>
-                    <FaPinterest className='icon'/>
-                    <FaYoutube className='icon'/>
-                </div>
-            </ul>
+                <ul className={click ? "nav-menu active" : "nav-menu"}>
+                    <li className='nav-item'>
+                        <Link to="/" onClick={closeMenu}>Beranda</Link>
+                    </li>
+                    <li className='nav-item'>
+                        <Link to='/about' onClick={closeMenu}>Tentang Kami</Link>
+                    </li>
+                    <li className='nav-item'>
+                        <a href='/our_program' onClick={closeMenu}>Kerja Kami</a>
+                    </li>
+                    <li className='nav-item'>
+                    <a href='/' onClick={closeMenu}>Publikasi</a>
+                        <ul className={click ? "nav-menu active" : "nav-menu"}>
+                            <li className='nav-item'>
+                                <Link to="/" onClick={closeMenu}>Beranda</Link>
+                            </li>
+                            <li className='nav-item'>
+                                <Link to='/about' onClick={closeMenu}>Tentang Kami</Link>
+                            </li>
+                            <li className='nav-item'>
+                                <a href='/our_program' onClick={closeMenu}>Kerja Kami</a>
+                            </li>
+                            <li className='nav-item'>
+                            <a href='/' onClick={closeMenu}>Publikasi</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li className='nav-item'>
+                        <a href='/www.gerainusantara.com' onClick={closeMenu}>Toko Aman</a>
+                    </li>
+                </ul>
+            </nav>
+            {/* <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+            </Routes> */}
         </div>
-    </div>
-    
-  )
+    )
 }
 
-export default NavbarLama
+export default Navbar

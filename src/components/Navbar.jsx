@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import logo from '../assets/perempuan-aman.png'
+import {Route, Link, Routes} from 'react-router-dom';
+import Home from '../pages';
+import About from '../pages/About';
+import Our_Program from '../pages/Our_Program';
 
 import './Navbar.css'
   
@@ -38,22 +42,26 @@ const Navbar = () => {
                 </div>
                 <ul className={click ? "nav-menu active" : "nav-menu"}>
                     <li className='nav-item'>
-                        <a href='/' onClick={closeMenu}>Beranda</a>
+                        <Link to="/" onClick={closeMenu}>Beranda</Link>
                     </li>
                     <li className='nav-item'>
-                        <a href='/' onClick={closeMenu}>Tentang Kami</a>
+                        <Link to='/about' onClick={closeMenu}>Tentang Kami</Link>
                     </li>
                     <li className='nav-item'>
-                        <a href='/' onClick={closeMenu}>Kerja Kami</a>
+                        <a href='/our_program' onClick={closeMenu}>Kerja Kami</a>
                     </li>
                     <li className='nav-item'>
                     <a href='/' onClick={closeMenu}>Publikasi</a>
                     </li>
                     <li className='nav-item'>
-                        <a href='/' onClick={closeMenu}>Toko Aman</a>
+                        <a href='/www.gerainusantara.com' onClick={closeMenu}>Toko Aman</a>
                     </li>
                 </ul>
             </nav>
+            {/* <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+            </Routes> */}
         </div>
     )
 }
