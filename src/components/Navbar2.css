@@ -1,3 +1,15 @@
+@if url == "/"{
+    .header-bg {
+        /* background-color: #8756c2; */
+        background-color: #8756c2;
+    }
+}else{
+    .header-bg {
+        /* background-color: #8756c2; */
+        background-color: #8756c2;
+    }
+}
+
 .header {
     position: fixed;
     height: 90px;
@@ -10,6 +22,7 @@
 }
 
 .header-bg {
+    /* background-color: #8756c2; */
     background-color: #8756c2;
 }
 
@@ -24,7 +37,7 @@
 }
 
 .header .nav-menu a {
-    color: #ffffff;
+    color: #fff;
 }
 
 .header .navbar img {

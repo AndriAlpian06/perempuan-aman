@@ -1,32 +1,26 @@
 import React from "react";
-import Books from "./components/Book";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
-import NavbarLama from "./components/NavbarLama";
-import News from "./components/News";
-import Partners from "./components/Partners";
-import Visi from "./components/Visi";
-import BackToTopButton from "./components/BackToTopButton";
-import Home from './pages';
+import Home from './pages/Home';
 import About from './pages/About';
 import Our_Program from './pages/Our_Program';
-import Beranda from './pages'
-import { Router, Route } from 'react-router-dom'
+import Error from "./pages/Error";
+import { 
+  BrowserRouter as Router,
+  Routes, 
+  Route } from 'react-router-dom'
+
 
 function App() {
 
   return (
-      <>
-          <Navbar/>
-          <Hero />
-          <Visi />
-          <News />
-          <Books />
-          <Partners />
-          <BackToTopButton />
-          <Footer />
-      </>
+        <Router>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="our_program" element={<Our_Program />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </Router>
+        
   );
 }
 
